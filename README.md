@@ -1,11 +1,13 @@
-# Alex Chen - Portfolio Website
+# Naresh Barua (IfElseGhost) - Portfolio Website
 
-A clean, modern, and fully static portfolio website built with vanilla HTML, CSS, and JavaScript. No frameworks, no build tools - just pure web fundamentals.
+A clean, modern, and fully static portfolio website built with vanilla HTML, CSS, and JavaScript. Features a minimal modern design with glassmorphism effects and red accent colors.
 
 ## 🚀 Features
 
 - **Mobile-first responsive design** - Looks great on all devices
 - **Dark/Light theme toggle** - Respects system preferences and persists choice
+- **Glassmorphism UI** - Modern glass-like design with blur effects
+- **Red accent color scheme** - Bold and minimal aesthetic
 - **Data-driven content** - All content loaded from JSON files for easy updates
 - **Fast & accessible** - Optimized for performance and screen readers
 - **SEO-friendly** - Proper meta tags, sitemap, and semantic HTML

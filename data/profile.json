@@ -1,17 +1,18 @@
 {
-  "name": "Alex Chen",
+  "name": "Naresh Barua",
+  "devName": "IfElseGhost",
   "tagline": "CSE Student | Developer | Graphic Designer",
   "bioShort": "I'm a Computer Science student passionate about building elegant software solutions and expressing creativity through visual arts. When I'm not coding, you'll find me drawing, designing, capturing moments through photography, or singing.",
-  "bioLong": "Hello! I'm Alex, a third-year Computer Science & Engineering student with a deep passion for both technology and the arts. I believe that the best solutions come from the intersection of logical thinking and creative expression.\n\nMy journey in tech started when I was 14, building simple websites and games. Since then, I've expanded into full-stack development, machine learning, and open-source contributions.\n\nOutside of coding, I channel my creativity through various artistic pursuits. Drawing has been my companion since childhood, graphic design became my way of solving visual problems, photography helps me see the world differently, and singing is my way of connecting with emotions.\n\nI'm always excited to work on projects that challenge me technically while allowing room for creative expression.",
-  "email": "alex.chen@email.com",
-  "location": "San Francisco, CA",
+  "bioLong": "Hello! I'm Naresh, also known as IfElseGhost in the dev community. I'm a Computer Science & Engineering student with a deep passion for both technology and the arts. I believe that the best solutions come from the intersection of logical thinking and creative expression.\n\nMy journey in tech started when I was young, building simple websites and games. Since then, I've expanded into full-stack development, machine learning, and open-source contributions.\n\nOutside of coding, I channel my creativity through various artistic pursuits. Drawing has been my companion since childhood, graphic design became my way of solving visual problems, photography helps me see the world differently, and singing is my way of connecting with emotions.\n\nI'm always excited to work on projects that challenge me technically while allowing room for creative expression.",
+  "email": "naresh.barua@email.com",
+  "location": "Your Location",
   "socials": {
-    "github": "https://github.com/alexchen",
-    "linkedin": "https://linkedin.com/in/alexchen",
-    "twitter": "https://twitter.com/alexchen",
-    "instagram": "https://instagram.com/alexchen.creates",
-    "behance": "https://behance.net/alexchen",
-    "dribbble": "https://dribbble.com/alexchen"
+    "github": "https://github.com/NareshBaruaIsHere",
+    "linkedin": "https://linkedin.com/in/nareshbarua",
+    "twitter": "https://twitter.com/nareshbarua",
+    "instagram": "https://instagram.com/nareshbarua",
+    "behance": "https://behance.net/nareshbarua",
+    "dribbble": "https://dribbble.com/nareshbarua"
   },
   "skills": {
     "languages": [

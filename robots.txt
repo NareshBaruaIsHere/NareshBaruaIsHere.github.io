@@ -1,10 +1,10 @@
-# Portfolio Website
+# Portfolio Website - Naresh Barua
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://alexchen.dev/sitemap.xml
+Sitemap: https://nareshbaruaishere.github.io/sitemap.xml
 
 # Disallow admin/private areas (none in this static site)
 # Disallow: /admin/
