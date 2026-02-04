@@ -1200,8 +1200,8 @@ p {
 }
 
 .hero-profile {
-  width: 150px;
-  height: 150px;
+  width: 300px;
+  height: 300px;
   margin: 0 auto var(--space-xl);
   border-radius: var(--radius-full);
   overflow: hidden;
