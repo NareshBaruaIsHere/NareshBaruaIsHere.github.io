@@ -1586,6 +1586,11 @@ p {
 @media (max-width: 768px) {
   .contact-grid {
     grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .contact-form {
+    padding: var(--space-lg);
   }
 }
 
@@ -2181,7 +2186,26 @@ body::before {
   /* Contact items */
   .contact-item {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .contact-item .icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contact-item .icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .contact-form {
+    padding: var(--space-lg);
+  }
+
+  .contact-info {
+    gap: var(--space-md);
   }
 
   /* Category cards */
