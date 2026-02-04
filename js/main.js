@@ -101,9 +101,11 @@ function initMobileMenu() {
 
     // Close menu when clicking outside
     document.addEventListener("click", (e) => {
-      if (navLinks.classList.contains("active") && 
-          !navLinks.contains(e.target) && 
-          !menuBtn.contains(e.target)) {
+      if (
+        navLinks.classList.contains("active") &&
+        !navLinks.contains(e.target) &&
+        !menuBtn.contains(e.target)
+      ) {
         menuBtn.classList.remove("active");
         navLinks.classList.remove("active");
         document.body.classList.remove("menu-open");
