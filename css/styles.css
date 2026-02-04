@@ -491,62 +491,73 @@ p {
 
   .nav {
     gap: var(--space-sm);
+    position: relative;
   }
 
   .nav-links {
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: absolute;
+    top: calc(100% + 10px);
     right: 0;
-    bottom: 0;
     background: #ffffff;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-lg);
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
+    align-items: stretch;
+    gap: 4px;
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e5e5e5;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
     z-index: 999;
-    padding: var(--space-2xl);
   }
 
   [data-theme="dark"] .nav-links {
-    background: #0a0a0a;
+    background: #1a1a1a;
+    border-color: #333333;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   }
 
   .nav-links.active {
-    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
 
   .nav-links li {
     width: 100%;
-    text-align: center;
   }
 
   .nav-link {
     display: block;
-    font-size: 1.5rem;
-    font-weight: 600;
-    padding: var(--space-md) var(--space-xl);
-    border-radius: var(--radius-lg);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 12px 16px;
+    border-radius: 8px;
     color: #1a1a1a;
-    background: #f5f5f5;
-    border: 1px solid #e5e5e5;
+    background: transparent;
+    border: none;
   }
 
   [data-theme="dark"] .nav-link {
     color: #ffffff;
-    background: #1a1a1a;
-    border-color: #333333;
+    background: transparent;
   }
 
   .nav-link:hover,
   .nav-link.active {
-    background: var(--color-primary-light);
+    background: #f5f5f5;
     color: var(--color-primary);
   }
 
-  /* Prevent body scroll when menu is open */
+  [data-theme="dark"] .nav-link:hover,
+  [data-theme="dark"] .nav-link.active {
+    background: #262626;
+  }
+
+  /* No need to prevent scroll for dropdown */
   body.menu-open {
     overflow: hidden;
   }
