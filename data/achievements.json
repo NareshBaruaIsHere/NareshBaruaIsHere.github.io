@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Google Summer of Code - Selected Contributor",
+    "date": "2025-05-15",
+    "issuer": "Google",
+    "description": "Selected as a GSoC contributor for the TensorFlow project, implementing new visualization tools for model debugging and analysis.",
+    "link": "https://summerofcode.withgoogle.com"
+  },
+  {
+    "title": "1st Place - University Hackathon",
+    "date": "2025-03-22",
+    "issuer": "Stanford University",
+    "description": "Won first place among 150+ teams with 'EcoTrack', an AI-powered sustainability tracking app that helps users reduce their carbon footprint.",
+    "link": null
+  },
+  {
+    "title": "AWS Certified Solutions Architect",
+    "date": "2025-01-10",
+    "issuer": "Amazon Web Services",
+    "description": "Earned the AWS Solutions Architect Associate certification, demonstrating expertise in designing distributed systems on AWS infrastructure.",
+    "link": "https://aws.amazon.com/certification"
+  },
+  {
+    "title": "Dean's List - Academic Excellence",
+    "date": "2024-12-20",
+    "issuer": "University of California",
+    "description": "Recognized for maintaining a GPA above 3.8 while actively contributing to research projects and extracurricular activities.",
+    "link": null
+  },
+  {
+    "title": "Adobe Creative Jam - Runner Up",
+    "date": "2024-09-05",
+    "issuer": "Adobe",
+    "description": "Placed second in the Adobe Creative Jam design competition for creating an innovative UI concept for accessible educational platforms.",
+    "link": "https://adobe.com/creativejam"
+  }
+]

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Achievements by Alex Chen - Awards, certifications, and recognitions."
+    />
+
+    <meta property="og:title" content="Achievements | Alex Chen" />
+    <meta
+      property="og:description"
+      content="Awards, certifications, and recognitions throughout my journey."
+    />
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Achievements | Alex Chen</title>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <main>
+      <section class="section">
+        <div class="container" style="max-width: 800px">
+          <div class="section-header page-content">
+            <h2>Achievements</h2>
+            <p>Milestones and recognitions along my journey</p>
+          </div>
+
+          <div class="timeline" id="achievements-timeline">
+            <!-- Populated by JS -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="skeleton skeleton-text" style="width: 100px"></div>
+              <div class="timeline-content">
+                <div class="skeleton skeleton-title"></div>
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text" style="width: 80%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        setTimeout(async () => {
+          const achievements = await DataManager.getAchievements();
+          const container = document.getElementById("achievements-timeline");
+
+          if (container && achievements && achievements.length) {
+            // Sort by date descending
+            const sorted = achievements.sort(
+              (a, b) => new Date(b.date) - new Date(a.date),
+            );
+
+            container.innerHTML = sorted
+              .map(
+                (achievement) => `
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-date">${new Date(achievement.date).toLocaleDateString("en-US", { year: "numeric", month: "long" })}</div>
+              <div class="timeline-content">
+                <h4>${achievement.title}</h4>
+                <div class="issuer">${achievement.issuer}</div>
+                <p>${achievement.description}</p>
+                ${
+                  achievement.link
+                    ? `
+                  <a href="${achievement.link}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm mt-md">
+                    Learn more
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="14" height="14">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                `
+                    : ""
+                }
+              </div>
+            </div>
+          `,
+              )
+              .join("");
+          }
+        }, 100);
+      });
+    </script>
+  </body>
+</html>

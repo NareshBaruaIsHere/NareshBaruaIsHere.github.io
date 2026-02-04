@@ -1,0 +1,112 @@
+[
+  {
+    "slug": "taskflow-app",
+    "title": "TaskFlow - Project Management App",
+    "date": "2025-12-15",
+    "tech": ["React", "Node.js", "MongoDB", "Socket.io", "TailwindCSS"],
+    "summary": "A real-time collaborative project management application with kanban boards, team chat, and automated workflows.",
+    "details": {
+      "overview": "TaskFlow is a comprehensive project management solution designed for small to medium teams. It features real-time collaboration, intuitive kanban boards, and powerful automation capabilities.",
+      "features": [
+        "Real-time kanban boards with drag-and-drop functionality",
+        "Team chat with threaded conversations",
+        "Automated workflows and task assignments",
+        "Time tracking and productivity analytics",
+        "Integration with GitHub, Slack, and Google Calendar",
+        "Mobile-responsive design"
+      ],
+      "techStack": "Built with React for the frontend, Node.js/Express for the backend API, MongoDB for data persistence, and Socket.io for real-time features. Styled with TailwindCSS and deployed on AWS.",
+      "challenges": "The biggest challenge was implementing real-time synchronization across multiple clients while maintaining data consistency. I solved this using Socket.io rooms and optimistic UI updates with rollback capabilities.",
+      "learned": "This project deepened my understanding of WebSocket protocols, state management in real-time applications, and the importance of optimistic UI updates for perceived performance."
+    },
+    "repo": "https://github.com/alexchen/taskflow",
+    "live": "https://taskflow-demo.vercel.app",
+    "images": [
+      "assets/img/projects/taskflow-1.jpg",
+      "assets/img/projects/taskflow-2.jpg",
+      "assets/img/projects/taskflow-3.jpg"
+    ]
+  },
+  {
+    "slug": "ml-image-classifier",
+    "title": "Neural Image Classifier",
+    "date": "2025-10-20",
+    "tech": ["Python", "TensorFlow", "Flask", "Docker", "AWS"],
+    "summary": "A deep learning image classification system with a web interface for custom model training and inference.",
+    "details": {
+      "overview": "This project provides an accessible interface for training and deploying custom image classification models. Users can upload training data, configure model parameters, and deploy trained models for inference.",
+      "features": [
+        "Custom dataset upload and preprocessing",
+        "Transfer learning with pre-trained models (ResNet, VGG, EfficientNet)",
+        "Real-time training progress visualization",
+        "Model performance metrics and confusion matrices",
+        "REST API for model inference",
+        "Docker containerization for easy deployment"
+      ],
+      "techStack": "The ML pipeline is built with TensorFlow/Keras, served through a Flask API, containerized with Docker, and deployed on AWS EC2 with S3 for model storage.",
+      "challenges": "Handling large datasets efficiently and providing real-time training feedback required implementing background workers with Celery and WebSocket connections for progress updates.",
+      "learned": "Gained extensive experience with ML model deployment, transfer learning techniques, and building production-ready ML systems."
+    },
+    "repo": "https://github.com/alexchen/neural-classifier",
+    "live": null,
+    "images": [
+      "assets/img/projects/ml-classifier-1.jpg",
+      "assets/img/projects/ml-classifier-2.jpg"
+    ]
+  },
+  {
+    "slug": "crypto-portfolio-tracker",
+    "title": "CryptoTrack - Portfolio Tracker",
+    "date": "2025-08-05",
+    "tech": ["Next.js", "TypeScript", "PostgreSQL", "Chart.js", "Prisma"],
+    "summary": "A cryptocurrency portfolio tracking application with real-time prices, analytics, and price alerts.",
+    "details": {
+      "overview": "CryptoTrack helps users manage and monitor their cryptocurrency investments with real-time data, interactive charts, and customizable alerts.",
+      "features": [
+        "Real-time cryptocurrency prices from multiple exchanges",
+        "Interactive portfolio performance charts",
+        "Price alerts via email and push notifications",
+        "Tax reporting and gain/loss calculations",
+        "Multi-wallet support with address tracking",
+        "Dark/light theme support"
+      ],
+      "techStack": "Built with Next.js 14 and TypeScript, using PostgreSQL with Prisma ORM for data management. Chart.js for visualizations and various crypto APIs for real-time data.",
+      "challenges": "Rate limiting from multiple APIs and ensuring data consistency across different exchanges required implementing a robust caching layer and data normalization pipeline.",
+      "learned": "Improved my understanding of financial data handling, API rate limiting strategies, and building responsive data dashboards."
+    },
+    "repo": "https://github.com/alexchen/cryptotrack",
+    "live": "https://cryptotrack.vercel.app",
+    "images": [
+      "assets/img/projects/crypto-1.jpg",
+      "assets/img/projects/crypto-2.jpg",
+      "assets/img/projects/crypto-3.jpg"
+    ]
+  },
+  {
+    "slug": "code-collab-editor",
+    "title": "CodeCollab - Real-time Code Editor",
+    "date": "2025-05-18",
+    "tech": ["React", "WebRTC", "Monaco Editor", "Firebase", "Node.js"],
+    "summary": "A collaborative code editor supporting real-time editing, video calls, and code execution in multiple languages.",
+    "details": {
+      "overview": "CodeCollab enables developers to collaborate on code in real-time with features like pair programming, video calls, and instant code execution.",
+      "features": [
+        "Real-time collaborative editing with cursor presence",
+        "Video and audio calls using WebRTC",
+        "Support for 15+ programming languages",
+        "Code execution sandbox with Docker",
+        "Version history and snapshots",
+        "Shareable rooms with access controls"
+      ],
+      "techStack": "React frontend with Monaco Editor (VS Code's editor), WebRTC for video/audio, Firebase for real-time sync, and isolated Docker containers for code execution.",
+      "challenges": "Implementing CRDT (Conflict-free Replicated Data Types) for conflict resolution in collaborative editing while maintaining performance was the main technical hurdle.",
+      "learned": "Deep dive into operational transformation, WebRTC protocols, and building secure code execution sandboxes."
+    },
+    "repo": "https://github.com/alexchen/code-collab",
+    "live": "https://codecollab.dev",
+    "images": [
+      "assets/img/projects/codecollab-1.jpg",
+      "assets/img/projects/codecollab-2.jpg"
+    ]
+  }
+]

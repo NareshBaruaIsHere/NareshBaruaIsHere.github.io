@@ -1,0 +1,21 @@
+{
+  "currentFocus": "Currently deep-diving into systems programming with Rust while wrapping up my final semester projects. Also working on a personal project that combines my love for music and code - a browser-based music visualization tool.",
+  "whatLearning": [
+    "Rust programming language and memory-safe systems development",
+    "WebGL and Three.js for creative coding and visualizations",
+    "Advanced algorithms and preparing for technical interviews",
+    "Music production techniques in Ableton Live"
+  ],
+  "goals": [
+    "Complete my senior thesis on distributed systems optimization",
+    "Contribute to at least 3 major open-source projects this year",
+    "Build and launch my music visualization tool",
+    "Improve my photography skills with a 365-day photo challenge"
+  ],
+  "reading": [
+    "\"Designing Data-Intensive Applications\" by Martin Kleppmann",
+    "\"The Rust Programming Language\" by Steve Klabnik",
+    "\"Steal Like an Artist\" by Austin Kleon"
+  ],
+  "updatedDate": "2026-02-01"
+}

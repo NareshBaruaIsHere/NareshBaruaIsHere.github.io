@@ -1,0 +1,142 @@
+[
+  {
+    "id": "drawing-001",
+    "title": "Urban Sketches Series",
+    "category": "drawing",
+    "date": "2025-11-20",
+    "tools": ["Procreate", "iPad Pro", "Apple Pencil"],
+    "description": "A collection of urban sketches capturing the essence of city life. These quick studies focus on architecture, street scenes, and the energy of metropolitan environments.",
+    "images": [
+      "assets/img/creative/drawing-urban-1.jpg",
+      "assets/img/creative/drawing-urban-2.jpg"
+    ],
+    "externalLink": "https://instagram.com/p/urban-sketches"
+  },
+  {
+    "id": "drawing-002",
+    "title": "Character Design Portfolio",
+    "category": "drawing",
+    "date": "2025-09-15",
+    "tools": ["Photoshop", "Wacom Tablet"],
+    "description": "Original character designs for a personal game project. Each character has a detailed backstory and unique visual identity reflecting their personality and role.",
+    "images": [
+      "assets/img/creative/drawing-characters-1.jpg",
+      "assets/img/creative/drawing-characters-2.jpg",
+      "assets/img/creative/drawing-characters-3.jpg"
+    ],
+    "externalLink": null
+  },
+  {
+    "id": "drawing-003",
+    "title": "Nature Studies",
+    "category": "drawing",
+    "date": "2025-07-08",
+    "tools": ["Traditional Media", "Graphite", "Colored Pencils"],
+    "description": "Botanical and wildlife studies from local parks and hiking trips. These traditional media pieces focus on capturing natural textures and organic forms.",
+    "images": ["assets/img/creative/drawing-nature-1.jpg"],
+    "externalLink": null
+  },
+  {
+    "id": "design-001",
+    "title": "TechStart Brand Identity",
+    "category": "graphic-design",
+    "date": "2025-12-01",
+    "tools": ["Adobe Illustrator", "Adobe Photoshop", "Figma"],
+    "description": "Complete brand identity design for TechStart, a startup incubator. Includes logo, color palette, typography system, and brand guidelines document.",
+    "images": [
+      "assets/img/creative/design-techstart-1.jpg",
+      "assets/img/creative/design-techstart-2.jpg"
+    ],
+    "externalLink": "https://behance.net/gallery/techstart-brand"
+  },
+  {
+    "id": "design-002",
+    "title": "Event Poster Collection",
+    "category": "graphic-design",
+    "date": "2025-10-12",
+    "tools": ["Adobe Photoshop", "Adobe Illustrator"],
+    "description": "A series of event posters designed for university tech conferences and hackathons. Each poster balances information hierarchy with eye-catching visuals.",
+    "images": [
+      "assets/img/creative/design-posters-1.jpg",
+      "assets/img/creative/design-posters-2.jpg",
+      "assets/img/creative/design-posters-3.jpg"
+    ],
+    "externalLink": null
+  },
+  {
+    "id": "design-003",
+    "title": "Mobile App UI Kit",
+    "category": "graphic-design",
+    "date": "2025-08-25",
+    "tools": ["Figma", "Adobe XD"],
+    "description": "A comprehensive UI kit for mobile applications featuring over 100 components, 50+ screens, and a cohesive design system with dark and light modes.",
+    "images": [
+      "assets/img/creative/design-uikit-1.jpg",
+      "assets/img/creative/design-uikit-2.jpg"
+    ],
+    "externalLink": "https://figma.com/community/file/uikit"
+  },
+  {
+    "id": "photo-001",
+    "title": "City Lights",
+    "category": "photography",
+    "date": "2025-11-05",
+    "tools": ["Sony A7III", "35mm f/1.4", "Lightroom"],
+    "description": "Night photography series capturing the vibrant city lights and urban atmosphere after dark. Long exposures and careful composition reveal the hidden beauty of the city at night.",
+    "images": [
+      "assets/img/creative/photo-citylights-1.jpg",
+      "assets/img/creative/photo-citylights-2.jpg",
+      "assets/img/creative/photo-citylights-3.jpg"
+    ],
+    "album": "Urban Night",
+    "externalLink": null
+  },
+  {
+    "id": "photo-002",
+    "title": "Mountain Expedition",
+    "category": "photography",
+    "date": "2025-09-20",
+    "tools": ["Sony A7III", "16-35mm f/2.8", "Lightroom", "Photoshop"],
+    "description": "Landscape photography from a week-long mountain expedition. These images showcase the raw beauty of alpine environments, from misty valleys to snow-capped peaks.",
+    "images": [
+      "assets/img/creative/photo-mountain-1.jpg",
+      "assets/img/creative/photo-mountain-2.jpg"
+    ],
+    "album": "Nature",
+    "externalLink": "https://500px.com/gallery/mountain-expedition"
+  },
+  {
+    "id": "photo-003",
+    "title": "Street Portraits",
+    "category": "photography",
+    "date": "2025-06-15",
+    "tools": ["Sony A7III", "85mm f/1.8", "Lightroom"],
+    "description": "A collection of candid street portraits captured in various cities. Each photograph tells a unique story about the subject and their environment.",
+    "images": [
+      "assets/img/creative/photo-portraits-1.jpg",
+      "assets/img/creative/photo-portraits-2.jpg"
+    ],
+    "album": "People",
+    "externalLink": null
+  },
+  {
+    "id": "singing-001",
+    "title": "Acoustic Sessions Vol. 1",
+    "category": "singing",
+    "date": "2025-10-30",
+    "tools": ["Acoustic Guitar", "Shure SM58", "GarageBand"],
+    "description": "A collection of acoustic cover songs recorded in my home studio. Features stripped-down arrangements of popular songs with focus on vocal delivery and emotion.",
+    "images": ["assets/img/creative/singing-acoustic-1.jpg"],
+    "externalLink": "https://youtube.com/playlist/acoustic-sessions"
+  },
+  {
+    "id": "singing-002",
+    "title": "Original Song: 'Digital Dreams'",
+    "category": "singing",
+    "date": "2025-08-10",
+    "tools": ["Logic Pro X", "MIDI Keyboard", "Rode NT1-A"],
+    "description": "An original composition blending electronic production with acoustic elements. The song explores themes of technology and human connection in the modern age.",
+    "images": ["assets/img/creative/singing-original-1.jpg"],
+    "externalLink": "https://soundcloud.com/alexchen/digital-dreams"
+  }
+]

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="About Alex Chen - Learn more about my background, skills, and journey as a developer and designer."
+    />
+
+    <meta property="og:title" content="About | Alex Chen" />
+    <meta
+      property="og:description"
+      content="Learn more about my background, skills, and journey as a developer and designer."
+    />
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>About | Alex Chen</title>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="about-hero page-content" id="about-hero">
+            <div class="about-image">
+              <img
+                src="assets/img/profile.jpg"
+                alt="Alex Chen"
+                onerror="this.style.display = 'none'"
+              />
+            </div>
+            <div class="about-content">
+              <h1 id="about-name">Alex Chen</h1>
+              <p class="tagline" id="about-tagline">
+                CSE Student | Developer | Graphic Designer
+              </p>
+              <p id="about-bio-short">Loading...</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="background: var(--color-bg-secondary)">
+        <div class="container">
+          <div class="section-header">
+            <h2>My Story</h2>
+          </div>
+          <div style="max-width: 800px; margin: 0 auto">
+            <p
+              id="about-bio-long"
+              style="
+                white-space: pre-line;
+                color: var(--color-text-secondary);
+                font-size: var(--font-size-lg);
+                line-height: 1.8;
+              "
+            >
+              Loading...
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Skills & Technologies</h2>
+            <p>What I work with</p>
+          </div>
+          <div class="skills-grid" id="skills-grid">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="background: var(--color-bg-secondary)">
+        <div class="container">
+          <div class="section-header">
+            <h2>Let's Connect</h2>
+            <p>I'm always open to new opportunities and collaborations</p>
+          </div>
+          <div class="text-center">
+            <div class="flex flex-center gap-md flex-wrap" id="about-socials">
+              <!-- Populated by JS -->
+            </div>
+            <div class="mt-xl">
+              <a href="contact.html" class="btn btn-primary btn-lg"
+                >Get in Touch</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        setTimeout(async () => {
+          const profile = await DataManager.getProfile();
+          if (profile) {
+            document.getElementById("about-name").textContent = profile.name;
+            document.getElementById("about-tagline").textContent =
+              profile.tagline;
+            document.getElementById("about-bio-short").textContent =
+              profile.bioShort;
+            document.getElementById("about-bio-long").textContent =
+              profile.bioLong;
+
+            // Render skills
+            const skillsGrid = document.getElementById("skills-grid");
+            if (skillsGrid && profile.skills) {
+              skillsGrid.innerHTML = `
+              <div class="skill-category">
+                <h4>Languages</h4>
+                <div class="skill-tags">
+                  ${profile.skills.languages.map((s) => `<span class="skill-tag">${s}</span>`).join("")}
+                </div>
+              </div>
+              <div class="skill-category">
+                <h4>Frameworks</h4>
+                <div class="skill-tags">
+                  ${profile.skills.frameworks.map((s) => `<span class="skill-tag">${s}</span>`).join("")}
+                </div>
+              </div>
+              <div class="skill-category">
+                <h4>Tools</h4>
+                <div class="skill-tags">
+                  ${profile.skills.tools.map((s) => `<span class="skill-tag">${s}</span>`).join("")}
+                </div>
+              </div>
+              <div class="skill-category">
+                <h4>Creative</h4>
+                <div class="skill-tags">
+                  ${profile.skills.creative.map((s) => `<span class="skill-tag">${s}</span>`).join("")}
+                </div>
+              </div>
+            `;
+            }
+
+            // Render social links
+            const socialsContainer = document.getElementById("about-socials");
+            if (socialsContainer && profile.socials) {
+              socialsContainer.innerHTML = Object.entries(profile.socials)
+                .filter(([_, value]) => value)
+                .map(
+                  ([key, value]) => `
+                <a href="${value}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                  ${key.charAt(0).toUpperCase() + key.slice(1)}
+                </a>
+              `,
+                )
+                .join("");
+            }
+          }
+        }, 100);
+      });
+    </script>
+  </body>
+</html>

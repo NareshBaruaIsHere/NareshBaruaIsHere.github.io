@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="What Alex Chen is doing now - Current focus, learning, and goals."
+    />
+
+    <meta property="og:title" content="Now | Alex Chen" />
+    <meta
+      property="og:description"
+      content="What I'm currently focused on, learning, and working towards."
+    />
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Now | Alex Chen</title>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <main>
+      <section class="section">
+        <div class="container" style="max-width: 800px">
+          <div class="section-header page-content">
+            <h2>What I'm Doing Now</h2>
+            <p>
+              Inspired by
+              <a
+                href="https://nownownow.com/about"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Derek Sivers' /now page movement</a
+              >
+            </p>
+          </div>
+
+          <div id="now-content">
+            <!-- Current Focus -->
+            <div class="now-section">
+              <h3>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
+                </svg>
+                Current Focus
+              </h3>
+              <p
+                id="now-focus"
+                style="
+                  color: var(--color-text-secondary);
+                  font-size: var(--font-size-lg);
+                "
+              >
+                Loading...
+              </p>
+            </div>
+
+            <!-- What I'm Learning -->
+            <div class="now-section">
+              <h3>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                  />
+                </svg>
+                What I'm Learning
+              </h3>
+              <ul class="now-list" id="now-learning">
+                <!-- Populated by JS -->
+              </ul>
+            </div>
+
+            <!-- Goals -->
+            <div class="now-section">
+              <h3>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                  />
+                </svg>
+                Goals
+              </h3>
+              <ul class="now-list" id="now-goals">
+                <!-- Populated by JS -->
+              </ul>
+            </div>
+
+            <!-- Reading -->
+            <div class="now-section">
+              <h3>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                  />
+                </svg>
+                Currently Reading
+              </h3>
+              <ul class="now-list" id="now-reading">
+                <!-- Populated by JS -->
+              </ul>
+            </div>
+
+            <div
+              class="text-center mt-xl"
+              style="
+                color: var(--color-text-muted);
+                font-size: var(--font-size-sm);
+              "
+            >
+              Last updated: <span id="now-updated">Loading...</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        setTimeout(async () => {
+          const now = await DataManager.getNow();
+          if (now) {
+            document.getElementById("now-focus").textContent = now.currentFocus;
+
+            document.getElementById("now-learning").innerHTML = now.whatLearning
+              .map((item) => `<li>${item}</li>`)
+              .join("");
+
+            document.getElementById("now-goals").innerHTML = now.goals
+              .map((item) => `<li>${item}</li>`)
+              .join("");
+
+            if (now.reading) {
+              document.getElementById("now-reading").innerHTML = now.reading
+                .map((item) => `<li>${item}</li>`)
+                .join("");
+            }
+
+            document.getElementById("now-updated").textContent = new Date(
+              now.updatedDate,
+            ).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            });
+          }
+        }, 100);
+      });
+    </script>
+  </body>
+</html>
