@@ -103,6 +103,26 @@ const ModalManager = {
       `
           : ""
       }
+      ${
+        content.showActions
+          ? `
+        <div class="lightbox-actions">
+          <button class="lightbox-action-btn" onclick="LightboxManager.downloadImage()" aria-label="Download image">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Download
+          </button>
+          <button class="lightbox-action-btn" onclick="LightboxManager.openComments()" aria-label="View comments">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            Comments
+          </button>
+        </div>
+      `
+          : ""
+      }
       <div class="modal">
         <div class="modal-body">
           <img src="${content.src}" alt="${content.alt || ""}" />
@@ -188,11 +208,21 @@ const ModalManager = {
 const LightboxManager = {
   images: [],
   currentIndex: 0,
+  photoInfo: null,
 
   open(images, startIndex = 0) {
     this.images = images;
     this.currentIndex = startIndex;
+    this.photoInfo = null;
     this.showImage();
+    this.bindNavEvents();
+  },
+
+  openPhoto(photos, startIndex = 0) {
+    this.images = photos;
+    this.photos = null;
+    this.currentIndex = startIndex;
+    this.showPhotoImage();
     this.bindNavEvents();
   },
 
@@ -204,6 +234,20 @@ const LightboxManager = {
         src: image.src || image,
         alt: image.alt || "",
         showNav: this.images.length > 1,
+      },
+    });
+  },
+
+  showPhotoImage() {
+    const image = this.images[this.currentIndex];
+
+    ModalManager.open({
+      type: "lightbox",
+      content: {
+        src: image,
+        alt: "Photo",
+        showNav: this.images.length > 1,
+        showActions: true,
       },
     });
   },
@@ -224,11 +268,36 @@ const LightboxManager = {
     if (modal) {
       const img = modal.querySelector("img");
       const image = this.images[this.currentIndex];
+
       if (img) {
-        img.src = image.src || image;
-        img.alt = image.alt || "";
+        img.src = image;
+        img.alt = "Photo";
       }
     }
+  },
+
+  downloadImage() {
+    const image = this.images[this.currentIndex];
+    const src = image;
+    const filename = src.split("/").pop() || "photo.jpg";
+
+    // Create a temporary link to download
+    const link = document.createElement("a");
+    link.href = src;
+    link.download = filename;
+    link.target = "_blank";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  },
+
+  openComments() {
+    // Placeholder for comments functionality
+    const photo = this.photos ? this.photos[this.currentIndex] : null;
+    alert(
+      "Comments feature coming soon!" +
+        (photo ? `\n\nPhoto: ${photo.title}` : ""),
+    );
   },
 
   bindNavEvents() {

@@ -1318,44 +1318,6 @@ p {
 }
 
 /* ============================================
-   Coming Soon Overlay
-   To remove: Delete this section and remove
-   .coming-soon-wrapper and .coming-soon-overlay
-   from HTML
-   ============================================ */
-.coming-soon-wrapper {
-  position: relative;
-}
-
-.coming-soon-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--glass-bg);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: var(--radius-lg);
-  z-index: 10;
-}
-
-.coming-soon-badge {
-  padding: var(--space-md) var(--space-xl);
-  background: var(--color-primary);
-  color: white;
-  font-size: var(--font-size-lg);
-  font-weight: 600;
-  border-radius: var(--radius-full);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  box-shadow: var(--shadow-lg);
-}
-
-/* ============================================
    Now Section / Preview
    ============================================ */
 .now-preview {
@@ -1869,6 +1831,144 @@ p {
   margin-bottom: var(--space-lg);
   padding-bottom: var(--space-sm);
   border-bottom: 1px solid var(--color-border);
+}
+
+/* ============================================
+   Photography Gallery - Masonry Layout
+   ============================================ */
+.photo-gallery {
+  columns: 3;
+  column-gap: var(--space-md);
+}
+
+@media (max-width: 992px) {
+  .photo-gallery {
+    columns: 2;
+  }
+}
+
+@media (max-width: 576px) {
+  .photo-gallery {
+    columns: 1;
+  }
+}
+
+.photo-item {
+  break-inside: avoid;
+  margin-bottom: var(--space-md);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  background: var(--color-bg-secondary);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.photo-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.photo-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.photo-item:hover img {
+  transform: scale(1.03);
+}
+
+.photo-item-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-lg);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.photo-item:hover .photo-item-overlay {
+  opacity: 1;
+}
+
+.photo-item-title {
+  color: white;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  margin: 0;
+}
+
+.photo-item-date {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: var(--font-size-sm);
+  margin-top: var(--space-xs);
+}
+
+/* Lightbox Action Buttons */
+.lightbox-actions {
+  position: absolute;
+  bottom: var(--space-xl);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: var(--space-md);
+  z-index: 10;
+}
+
+.lightbox-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  color: white;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.lightbox-action-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.lightbox-action-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.lightbox-info {
+  position: absolute;
+  bottom: calc(var(--space-xl) + 60px);
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+  z-index: 10;
+}
+
+.lightbox-info h3 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-xs);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-info p {
+  font-size: var(--font-size-sm);
+  opacity: 0.8;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* Creative Modal Content */

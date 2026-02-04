@@ -5,6 +5,7 @@
 const CreativeManager = {
   allWorks: [],
   category: null,
+  galleryPhotos: [],
 
   async init(category = null) {
     this.category = category;
@@ -33,16 +34,16 @@ const CreativeManager = {
   },
 
   renderCategoryPage() {
-    const container = document.getElementById("creative-grid");
-    if (!container) return;
-
     const works = this.allWorks.filter((w) => w.category === this.category);
 
-    // For photography, check if there are albums
+    // For photography, use a different container
     if (this.category === "photography") {
       this.renderPhotographyPage(works);
       return;
     }
+
+    const container = document.getElementById("creative-grid");
+    if (!container) return;
 
     if (works.length === 0) {
       container.innerHTML = `
@@ -61,58 +62,56 @@ const CreativeManager = {
   },
 
   renderPhotographyPage(works) {
-    const container = document.getElementById("creative-grid");
+    const container = document.getElementById("photo-gallery");
     if (!container) return;
 
-    // Group by album if present
-    const albumWorks = works.filter((w) => w.album);
-    const noAlbumWorks = works.filter((w) => !w.album);
-
-    const albums = {};
-    albumWorks.forEach((work) => {
-      if (!albums[work.album]) {
-        albums[work.album] = [];
-      }
-      albums[work.album].push(work);
+    // Collect all individual images from all photography works
+    const allPhotos = [];
+    works.forEach((work) => {
+      work.images.forEach((img) => {
+        allPhotos.push(img);
+      });
     });
 
-    let html = "";
-
-    // Render albums first
-    Object.keys(albums).forEach((albumName) => {
-      html += `
-        <div class="album-section" style="grid-column: 1 / -1;">
-          <h3>${albumName}</h3>
-          <div class="grid grid-3">
-            ${albums[albumName].map((work) => this.renderCard(work)).join("")}
-          </div>
+    if (allPhotos.length === 0) {
+      container.innerHTML = `
+        <div class="empty-state">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <h3>No photos yet</h3>
+          <p>Check back soon for new content!</p>
         </div>
       `;
-    });
-
-    // Render works without album
-    if (noAlbumWorks.length > 0) {
-      if (Object.keys(albums).length > 0) {
-        html += `<div class="album-section" style="grid-column: 1 / -1;"><h3>Other</h3><div class="grid grid-3">`;
-      }
-      html += noAlbumWorks.map((work) => this.renderCard(work)).join("");
-      if (Object.keys(albums).length > 0) {
-        html += `</div></div>`;
-      }
+      return;
     }
 
-    container.innerHTML =
-      html ||
-      `
-      <div class="empty-state" style="grid-column: 1 / -1;">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-        <h3>No photos yet</h3>
-        <p>Check back soon for new content!</p>
+    container.innerHTML = allPhotos
+      .map(
+        (src, index) => `
+      <div class="photo-item" data-index="${index}">
+        <img src="${src}" alt="Photo" loading="lazy" onerror="this.parentElement.style.display='none'">
       </div>
-    `;
+    `,
+      )
+      .join("");
+
+    // Store photos for lightbox
+    this.galleryPhotos = allPhotos;
+
+    // Bind click events for lightbox
+    container.querySelectorAll(".photo-item").forEach((item) => {
+      item.addEventListener("click", () => {
+        const index = parseInt(item.dataset.index);
+        this.openPhotoLightbox(index);
+      });
+    });
+  },
+
+  openPhotoLightbox(index) {
+    const photos = this.galleryPhotos;
+    LightboxManager.openPhoto(photos, index);
   },
 
   renderCard(work) {
