@@ -1,39 +1,31 @@
 [
   {
-    "id": "drawing-001",
-    "title": "Urban Sketches Series",
+    "id": "drawing-collection",
+    "title": "Drawing",
     "category": "drawing",
-    "date": "2025-11-20",
-    "tools": ["Procreate", "iPad Pro", "Apple Pencil"],
-    "description": "A collection of urban sketches capturing the essence of city life. These quick studies focus on architecture, street scenes, and the energy of metropolitan environments.",
+    "date": "2026-01-01",
+    "tools": ["Digital", "Traditional"],
+    "description": "",
     "images": [
-      "assets/img/creative/drawing-urban-1.jpg",
-      "assets/img/creative/drawing-urban-2.jpg"
+      "assets/img/creative/art/05082023_213832.🃏 PIXEL 4XL By GcamTheBoss.jpg",
+      "assets/img/creative/art/1687415298409.jpg",
+      "assets/img/creative/art/Antik-final~2.jpg",
+      "assets/img/creative/art/IMG_20230527_233241.jpg",
+      "assets/img/creative/art/IMG_20230531_145737.jpg",
+      "assets/img/creative/art/IMG_20230609_222643.jpg",
+      "assets/img/creative/art/IMG_20230610_103842.jpg",
+      "assets/img/creative/art/IMG_20231012_142831.jpg",
+      "assets/img/creative/art/IMG_20231012_142852.jpg",
+      "assets/img/creative/art/IMG_20231013_192319.jpg",
+      "assets/img/creative/art/IMG_20231207_194840.jpg",
+      "assets/img/creative/art/IMG_20231208_125549.jpg",
+      "assets/img/creative/art/IMG_20231220_213346.jpg",
+      "assets/img/creative/art/IMG_20231220_213642_1.jpg",
+      "assets/img/creative/art/IMG_20250831_203529~2.jpg",
+      "assets/img/creative/art/IMG_20260204_130812.jpg",
+      "assets/img/creative/art/IMG_20260204_130833.jpg",
+      "assets/img/creative/art/IMG_20260204_130859.jpg"
     ],
-    "externalLink": "https://instagram.com/p/urban-sketches"
-  },
-  {
-    "id": "drawing-002",
-    "title": "Character Design Portfolio",
-    "category": "drawing",
-    "date": "2025-09-15",
-    "tools": ["Photoshop", "Wacom Tablet"],
-    "description": "Original character designs for a personal game project. Each character has a detailed backstory and unique visual identity reflecting their personality and role.",
-    "images": [
-      "assets/img/creative/drawing-characters-1.jpg",
-      "assets/img/creative/drawing-characters-2.jpg",
-      "assets/img/creative/drawing-characters-3.jpg"
-    ],
-    "externalLink": null
-  },
-  {
-    "id": "drawing-003",
-    "title": "Nature Studies",
-    "category": "drawing",
-    "date": "2025-07-08",
-    "tools": ["Traditional Media", "Graphite", "Colored Pencils"],
-    "description": "Botanical and wildlife studies from local parks and hiking trips. These traditional media pieces focus on capturing natural textures and organic forms.",
-    "images": ["assets/img/creative/drawing-nature-1.jpg"],
     "externalLink": null
   },
   {

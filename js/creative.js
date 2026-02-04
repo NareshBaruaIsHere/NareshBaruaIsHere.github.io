@@ -36,9 +36,14 @@ const CreativeManager = {
   renderCategoryPage() {
     const works = this.allWorks.filter((w) => w.category === this.category);
 
-    // For photography, use a different container
+    // For photography and drawing, use masonry gallery
     if (this.category === "photography") {
-      this.renderPhotographyPage(works);
+      this.renderGalleryPage(works, "photo-gallery");
+      return;
+    }
+
+    if (this.category === "drawing") {
+      this.renderGalleryPage(works, "drawing-gallery");
       return;
     }
 
@@ -61,11 +66,11 @@ const CreativeManager = {
     container.innerHTML = works.map((work) => this.renderCard(work)).join("");
   },
 
-  renderPhotographyPage(works) {
-    const container = document.getElementById("photo-gallery");
+  renderGalleryPage(works, containerId) {
+    const container = document.getElementById(containerId);
     if (!container) return;
 
-    // Collect all individual images from all photography works
+    // Collect all individual images from all works
     const allPhotos = [];
     works.forEach((work) => {
       work.images.forEach((img) => {
@@ -91,7 +96,7 @@ const CreativeManager = {
       .map(
         (src, index) => `
       <div class="photo-item" data-index="${index}">
-        <img src="${src}" alt="Photo" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="${src}" alt="Photo" loading="${index < 6 ? "eager" : "lazy"}" decoding="async" fetchpriority="${index < 3 ? "high" : "low"}" onerror="this.parentElement.style.display='none'">
       </div>
     `,
       )

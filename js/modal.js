@@ -279,7 +279,9 @@ const LightboxManager = {
   downloadImage() {
     const image = this.images[this.currentIndex];
     const src = image;
-    const filename = src.split("/").pop() || "photo.jpg";
+    const originalName = src.split("/").pop() || "photo.jpg";
+    const ext = originalName.split(".").pop();
+    const filename = `IfElseGhost_${this.currentIndex + 1}.${ext}`;
 
     // Create a temporary link to download
     const link = document.createElement("a");
