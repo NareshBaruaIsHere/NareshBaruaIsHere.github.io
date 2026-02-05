@@ -45,11 +45,12 @@
             </p>
           </div>
 
-          <div id="now-content">
-            <!-- Current Focus -->
-            <div class="now-section">
-              <h3>
+          <div class="maintenance-wrapper">
+            <!-- Maintenance Overlay -->
+            <div class="maintenance-overlay">
+              <div class="maintenance-content">
                 <svg
+                  class="maintenance-icon"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -59,99 +60,124 @@
                     stroke-linecap="round"
                     stroke-linejoin="round"
                     stroke-width="2"
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
                   />
                 </svg>
-                Current Focus
-              </h3>
-              <p
-                id="now-focus"
+                <h3 class="maintenance-title">Under Construction</h3>
+                <p class="maintenance-text">
+                  This section is currently being updated. Check back soon!
+                </p>
+              </div>
+            </div>
+
+            <div id="now-content">
+              <!-- Current Focus -->
+              <div class="now-section">
+                <h3>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
+                  </svg>
+                  Current Focus
+                </h3>
+                <p
+                  id="now-focus"
+                  style="
+                    color: var(--color-text-secondary);
+                    font-size: var(--font-size-lg);
+                  "
+                >
+                  Loading...
+                </p>
+              </div>
+
+              <!-- What I'm Learning -->
+              <div class="now-section">
+                <h3>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                    />
+                  </svg>
+                  What I'm Learning
+                </h3>
+                <ul class="now-list" id="now-learning">
+                  <!-- Populated by JS -->
+                </ul>
+              </div>
+
+              <!-- Goals -->
+              <div class="now-section">
+                <h3>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                    />
+                  </svg>
+                  Goals
+                </h3>
+                <ul class="now-list" id="now-goals">
+                  <!-- Populated by JS -->
+                </ul>
+              </div>
+
+              <!-- Reading -->
+              <div class="now-section">
+                <h3>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                    />
+                  </svg>
+                  Currently Reading
+                </h3>
+                <ul class="now-list" id="now-reading">
+                  <!-- Populated by JS -->
+                </ul>
+              </div>
+
+              <div
+                class="text-center mt-xl"
                 style="
-                  color: var(--color-text-secondary);
-                  font-size: var(--font-size-lg);
+                  color: var(--color-text-muted);
+                  font-size: var(--font-size-sm);
                 "
               >
-                Loading...
-              </p>
-            </div>
-
-            <!-- What I'm Learning -->
-            <div class="now-section">
-              <h3>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                  />
-                </svg>
-                What I'm Learning
-              </h3>
-              <ul class="now-list" id="now-learning">
-                <!-- Populated by JS -->
-              </ul>
-            </div>
-
-            <!-- Goals -->
-            <div class="now-section">
-              <h3>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                  />
-                </svg>
-                Goals
-              </h3>
-              <ul class="now-list" id="now-goals">
-                <!-- Populated by JS -->
-              </ul>
-            </div>
-
-            <!-- Reading -->
-            <div class="now-section">
-              <h3>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                  />
-                </svg>
-                Currently Reading
-              </h3>
-              <ul class="now-list" id="now-reading">
-                <!-- Populated by JS -->
-              </ul>
-            </div>
-
-            <div
-              class="text-center mt-xl"
-              style="
-                color: var(--color-text-muted);
-                font-size: var(--font-size-sm);
-              "
-            >
-              Last updated: <span id="now-updated">Loading...</span>
+                Last updated: <span id="now-updated">Loading...</span>
+              </div>
             </div>
           </div>
         </div>

@@ -35,6 +35,13 @@
     />
 
     <link rel="icon" href="assets/n_favicon.png" type="image/png" />
+    <!-- Preload critical hero image -->
+    <link
+      rel="preload"
+      as="image"
+      href="assets/img/hero/hero_1.jpg"
+      fetchpriority="high"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -58,6 +65,9 @@
                 src="assets/img/hero/hero_1.jpg"
                 alt="Naresh Barua"
                 id="hero-profile-img"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
               />
             </div>
             <h1 id="hero-name">Naresh Barua</h1>
@@ -348,6 +358,7 @@
         }, 100);
       });
     </script>
+    <script src="js/image-optimizer.js"></script>
     <script src="js/creative.js"></script>
     <script src="js/coding-background.js"></script>
     <script src="js/text-encryption.js"></script>

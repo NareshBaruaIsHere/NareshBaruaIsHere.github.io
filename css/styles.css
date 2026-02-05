@@ -1936,6 +1936,88 @@ p {
 }
 
 /* ============================================
+   Optimized Image Loading
+   ============================================ */
+.img-container {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg-tertiary);
+}
+
+.img-placeholder {
+  position: absolute;
+  inset: 0;
+  background: var(--color-bg-tertiary);
+  animation: shimmer 1.5s infinite;
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-secondary) 25%,
+    var(--color-bg-tertiary) 50%,
+    var(--color-bg-secondary) 75%
+  );
+  background-size: 200% 100%;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Only hide images that use data-src lazy loading pattern */
+img[data-src]:not([src]) {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.img-loaded {
+  opacity: 1 !important;
+}
+
+.img-loading {
+  opacity: 0.5;
+}
+
+.img-error {
+  opacity: 0.5;
+  filter: grayscale(100%);
+}
+
+/* Native lazy loading optimization */
+img[loading="lazy"] {
+  /* Prevent layout shift */
+  background: var(--color-bg-tertiary);
+}
+
+/* Smooth transitions for card images */
+.card-image img,
+.photo-item img,
+.gallery-item img {
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* Fade-in animation for loaded images */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Aspect ratio containers to prevent layout shift */
+.aspect-ratio-16-9 {
+  aspect-ratio: 16/9;
+}
+
+.aspect-ratio-4-3 {
+  aspect-ratio: 4/3;
+}
+
+.aspect-ratio-1-1 {
+  aspect-ratio: 1/1;
+}
+
+/* ============================================
    Utilities
    ============================================ */
 .sr-only {
@@ -2619,5 +2701,70 @@ body::before {
   .nav-links .nav-link {
     font-size: var(--font-size-base);
     padding: var(--space-sm) var(--space-md);
+  }
+}
+
+/* ============================================
+   Under Maintenance Overlay
+   ============================================ */
+.maintenance-wrapper {
+  position: relative;
+  min-height: 400px;
+}
+
+.maintenance-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.maintenance-content {
+  text-align: center;
+  padding: var(--space-2xl);
+}
+
+.maintenance-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: var(--space-lg);
+  color: var(--color-primary);
+  animation: maintenance-pulse 2s ease-in-out infinite;
+}
+
+.maintenance-title {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.maintenance-text {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  max-width: 400px;
+}
+
+@keyframes maintenance-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
   }
 }

@@ -54,13 +54,15 @@ const ProjectsManager = {
 
     container.innerHTML = this.filteredProjects
       .map(
-        (project) => `
+        (project, index) => `
       <article class="card project-card" data-slug="${project.slug}">
         <div class="card-image">
-          <img src="${project.images[0] || "assets/img/placeholder.jpg"}" 
+          <img src="${project.images[0] || "assets/img/placeholder.svg"}" 
                alt="${project.title}" 
-               loading="lazy"
-               onerror="this.src='assets/img/placeholder.jpg'">
+               loading="${index < 3 ? "eager" : "lazy"}"
+               decoding="async"
+               fetchpriority="${index < 3 ? "high" : "low"}"
+               onerror="this.onerror=null; this.src='assets/img/placeholder.svg';">
         </div>
         <div class="card-body">
           <h3 class="card-title">${project.title}</h3>

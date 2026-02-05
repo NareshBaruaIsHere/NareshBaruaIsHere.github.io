@@ -123,10 +123,12 @@ const CreativeManager = {
     return `
       <article class="card creative-card" data-id="${work.id}">
         <div class="card-image">
-          <img src="${work.images[0] || "assets/img/placeholder.jpg"}" 
+          <img src="${work.images[0] || "assets/img/placeholder.svg"}" 
                alt="${work.title}" 
                loading="lazy"
-               onerror="this.src='assets/img/placeholder.jpg'">
+               decoding="async"
+               fetchpriority="low"
+               onerror="this.onerror=null; this.src='assets/img/placeholder.svg';">
         </div>
         <div class="card-body">
           <h3 class="card-title">${work.title}</h3>
