@@ -114,18 +114,19 @@ const CreativeManager = {
     }
 
     // Generate thumbnails for preview (smaller file size for faster loading)
+    // Note: Uses original images until thumbs/ folder exists from GitHub Actions
     container.innerHTML = allPhotos
       .map((src, index) => {
-        const thumbSrc = this.getThumbnailPath(src);
+        // Use original image directly - thumbnails will be used once generated
+        // This prevents 404 delays when thumbs folder doesn't exist
         return `
       <div class="photo-item" data-index="${index}" data-full="${src}">
         <img 
-          src="${thumbSrc}" 
+          src="${src}" 
           alt="Photo" 
-          loading="${index < 6 ? "eager" : "lazy"}" 
+          loading="${index < 8 ? "eager" : "lazy"}" 
           decoding="async" 
-          fetchpriority="${index < 3 ? "high" : "low"}"
-          onerror="this.onerror=null; this.src='${src}';">
+          fetchpriority="${index < 4 ? "high" : "auto"}">
       </div>
     `;
       })

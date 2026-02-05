@@ -1184,9 +1184,15 @@ p {
 }
 
 /* Lightbox Modal */
+.lightbox-modal {
+  cursor: pointer; /* Indicate clickable to close */
+}
+
 .lightbox-modal .modal {
   max-width: 90vw;
   background: transparent;
+  cursor: default;
+  pointer-events: none; /* Allow clicks to pass through to overlay */
 }
 
 .lightbox-modal .modal-body {
@@ -1194,6 +1200,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
 }
 
 .lightbox-modal img {
@@ -1201,6 +1208,8 @@ p {
   max-height: 80vh;
   object-fit: contain;
   border-radius: var(--radius-md);
+  pointer-events: auto; /* Image itself captures clicks */
+  cursor: default;
 }
 
 .lightbox-nav {
@@ -1216,6 +1225,9 @@ p {
   justify-content: center;
   color: var(--color-text);
   transition: all var(--transition-fast);
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 10;
 }
 
 .lightbox-nav:hover {
@@ -1242,6 +1254,9 @@ p {
   align-items: center;
   justify-content: center;
   color: var(--color-text);
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 10;
 }
 
 /* ============================================

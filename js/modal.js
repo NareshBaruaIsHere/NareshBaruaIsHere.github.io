@@ -156,9 +156,23 @@ const ModalManager = {
   },
 
   bindEvents() {
-    // Close on overlay click
+    // Close on overlay click (clicking outside modal content)
     document.addEventListener("click", (e) => {
-      if (e.target.classList.contains("modal-overlay")) {
+      // For lightbox: close when clicking outside the image
+      if (
+        e.target.classList.contains("modal-overlay") ||
+        e.target.classList.contains("lightbox-modal")
+      ) {
+        this.close();
+      }
+      // For lightbox: close when clicking the modal wrapper but not the image
+      if (
+        e.target.closest(".lightbox-modal") &&
+        !e.target.closest("img") &&
+        !e.target.closest(".lightbox-nav") &&
+        !e.target.closest(".lightbox-action-btn") &&
+        !e.target.closest(".lightbox-close")
+      ) {
         this.close();
       }
       if (
