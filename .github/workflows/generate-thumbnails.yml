@@ -1,0 +1,73 @@
+name: Generate Thumbnails
+
+on:
+  push:
+    paths:
+      - "assets/img/photography/**"
+      - "assets/img/creative/art/**"
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  generate-thumbnails:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install ImageMagick
+        run: sudo apt-get update && sudo apt-get install -y imagemagick
+
+      - name: Generate thumbnails for photography
+        run: |
+          PHOTO_DIR="assets/img/photography"
+          if [ -d "$PHOTO_DIR" ]; then
+            mkdir -p "$PHOTO_DIR/thumbs"
+            for img in "$PHOTO_DIR"/*.{jpg,jpeg,png,JPG,JPEG,PNG} 2>/dev/null; do
+              if [ -f "$img" ]; then
+                filename=$(basename "$img")
+                thumb_path="$PHOTO_DIR/thumbs/$filename"
+                if [ ! -f "$thumb_path" ] || [ "$img" -nt "$thumb_path" ]; then
+                  echo "Creating thumbnail: $filename"
+                  convert "$img" -resize "600x600>" -quality 60 "$thumb_path"
+                fi
+              fi
+            done
+          fi
+
+      - name: Generate thumbnails for drawings
+        run: |
+          ART_DIR="assets/img/creative/art"
+          if [ -d "$ART_DIR" ]; then
+            mkdir -p "$ART_DIR/thumbs"
+            for img in "$ART_DIR"/*.{jpg,jpeg,png,JPG,JPEG,PNG} 2>/dev/null; do
+              if [ -f "$img" ]; then
+                filename=$(basename "$img")
+                thumb_path="$ART_DIR/thumbs/$filename"
+                if [ ! -f "$thumb_path" ] || [ "$img" -nt "$thumb_path" ]; then
+                  echo "Creating thumbnail: $filename"
+                  convert "$img" -resize "600x600>" -quality 60 "$thumb_path"
+                fi
+              fi
+            done
+          fi
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git add -A
+          if git diff --staged --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push thumbnails
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "🖼️ Auto-generate thumbnails"
+          git push

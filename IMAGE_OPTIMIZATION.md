@@ -4,32 +4,59 @@
 
 Your portfolio now includes these image optimization strategies:
 
-### 1. **Native Lazy Loading**
+### 1. **Thumbnail System for Gallery** ⭐ NEW
+
+- Gallery shows **low-resolution thumbnails** (fast loading)
+- Lightbox displays **full resolution** for viewing
+- Download button gets **full resolution** file
+- Run `scripts/generate-thumbnails.ps1` to create thumbnails
+
+### 2. **Native Lazy Loading**
 
 - Images below the fold use `loading="lazy"`
 - Above-fold images use `loading="eager"` for immediate loading
 
-### 2. **Priority Hints (fetchpriority)**
+### 3. **Priority Hints (fetchpriority)**
 
 - Hero image: `fetchpriority="high"`
 - First 3 project cards: `fetchpriority="high"`
 - Gallery images: `fetchpriority="low"`
 
-### 3. **Async Decoding**
+### 4. **Async Decoding**
 
 - All images use `decoding="async"` to not block rendering
 
-### 4. **Image Preloading**
+### 5. **Image Preloading**
 
 - Hero image is preloaded in `<head>` for fastest LCP
-
-### 5. **GPU-Accelerated Transitions**
-
-- Cards use `will-change` and `transform: translateZ(0)` for smooth animations
 
 ### 6. **Skeleton Loading Placeholders**
 
 - Shimmer animation while images load prevents layout shift
+
+---
+
+## 🖼️ Generate Thumbnails (Important!)
+
+Run this command in PowerShell to create thumbnails for your gallery:
+
+```powershell
+# From project root directory
+.\scripts\generate-thumbnails.ps1
+```
+
+This creates a `thumbs` subfolder with 600px max-width images at 60% quality.
+
+**Thumbnail Structure:**
+
+```
+assets/img/photography/
+├── photo1.jpg          (Full resolution - for download)
+├── photo2.jpg
+└── thumbs/
+    ├── photo1.jpg      (Thumbnail - for gallery preview)
+    └── photo2.jpg
+```
 
 ---
 

@@ -11,6 +11,23 @@ A clean, modern, and fully static portfolio website built with vanilla HTML, CSS
 - **Data-driven content** - All content loaded from JSON files for easy updates
 - **Fast & accessible** - Optimized for performance and screen readers
 - **SEO-friendly** - Proper meta tags, sitemap, and semantic HTML
+- **🖼️ Auto-thumbnail generation** - Thumbnails created automatically via GitHub Actions
+
+## 📸 Adding New Images
+
+Just add images to these folders and push - thumbnails are generated automatically!
+
+```
+assets/img/photography/     # Add photos here
+assets/img/creative/art/    # Add drawings here
+```
+
+**How it works:**
+
+1. Add your full-resolution images to the folder
+2. Push to GitHub
+3. GitHub Actions automatically creates thumbnails in a `thumbs/` subfolder
+4. Gallery shows fast-loading thumbnails, lightbox shows full resolution
 
 ## 📁 Project Structure
 

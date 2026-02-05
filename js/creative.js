@@ -5,7 +5,28 @@
 const CreativeManager = {
   allWorks: [],
   category: null,
-  galleryPhotos: [],
+  galleryPhotos: [], // Stores full resolution paths
+  galleryThumbnails: [], // Stores thumbnail paths
+
+  /**
+   * Generate thumbnail path from full image path
+   * Convention: image.jpg -> image_thumb.jpg
+   * Falls back to original if no thumbnail naming convention is used
+   */
+  getThumbnailPath(src) {
+    // Check if it's a valid image path
+    if (!src || typeof src !== "string") return src;
+
+    // For images in photography/creative folders, use lower quality placeholder
+    // This creates a thumbnail path: image.jpg -> thumbs/image.jpg
+    const pathParts = src.split("/");
+    const filename = pathParts.pop();
+    const directory = pathParts.join("/");
+
+    // Return thumbnail path (thumbs subfolder)
+    // If thumbs don't exist, browser will fall back to original via onerror
+    return `${directory}/thumbs/${filename}`;
+  },
 
   async init(category = null) {
     this.category = category;
@@ -92,17 +113,25 @@ const CreativeManager = {
       return;
     }
 
+    // Generate thumbnails for preview (smaller file size for faster loading)
     container.innerHTML = allPhotos
-      .map(
-        (src, index) => `
-      <div class="photo-item" data-index="${index}">
-        <img src="${src}" alt="Photo" loading="${index < 6 ? "eager" : "lazy"}" decoding="async" fetchpriority="${index < 3 ? "high" : "low"}" onerror="this.parentElement.style.display='none'">
+      .map((src, index) => {
+        const thumbSrc = this.getThumbnailPath(src);
+        return `
+      <div class="photo-item" data-index="${index}" data-full="${src}">
+        <img 
+          src="${thumbSrc}" 
+          alt="Photo" 
+          loading="${index < 6 ? "eager" : "lazy"}" 
+          decoding="async" 
+          fetchpriority="${index < 3 ? "high" : "low"}"
+          onerror="this.onerror=null; this.src='${src}';">
       </div>
-    `,
-      )
+    `;
+      })
       .join("");
 
-    // Store photos for lightbox
+    // Store FULL resolution photos for lightbox/download
     this.galleryPhotos = allPhotos;
 
     // Bind click events for lightbox
