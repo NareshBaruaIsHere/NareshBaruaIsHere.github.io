@@ -165,12 +165,12 @@ body {
 .hero.section,
 .about-hero {
   position: relative;
-  background: linear-gradient(
+  /* background: linear-gradient(
     135deg,
     var(--color-bg) 0%,
     var(--color-bg-secondary) 50%,
     var(--color-bg-tertiary) 100%
-  );
+  ); */
 }
 
 /* Subtle animated background pattern for sections */
@@ -1338,14 +1338,78 @@ p {
 .hero h1 {
   font-size: var(--font-size-5xl);
   margin-bottom: var(--space-xs);
+  color: var(--color-text);
+}
+
+/* Text Encryption Effects */
+.text-encryption,
+.matrix-encryption,
+.hacker-encryption {
+  cursor: pointer;
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+  transition: all var(--transition-fast);
+  position: relative;
+  display: inline-block;
+}
+
+.text-encryption:hover,
+.matrix-encryption:hover,
+.hacker-encryption:hover {
+  text-shadow:
+    0 0 3px rgba(239, 68, 68, 0.3),
+    0 0 6px rgba(239, 68, 68, 0.2);
+  transform: scale(1.01);
+}
+
+/* Matrix encryption specific styles */
+.matrix-encryption {
+  font-family: "Courier New", monospace;
+  text-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+}
+
+.matrix-encryption:hover {
+  color: #00ff00;
+  text-shadow:
+    0 0 3px rgba(0, 255, 0, 0.4),
+    0 0 6px rgba(0, 255, 0, 0.3);
+}
+
+/* Hacker encryption specific styles */
+.hacker-encryption {
+  position: relative;
+  overflow: hidden;
+}
+
+.hacker-encryption::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(
-    135deg,
-    var(--color-text) 0%,
-    var(--color-primary) 100%
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
   );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  transition: left var(--transition-base);
+}
+
+.hacker-encryption:hover::before {
+  left: 100%;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .matrix-encryption {
+  color: #00ff00;
+}
+
+[data-theme="dark"] .hacker-encryption:hover {
+  text-shadow:
+    0 0 3px rgba(239, 68, 68, 0.4),
+    0 0 6px rgba(239, 68, 68, 0.3);
 }
 
 .hero .dev-name {
@@ -2181,12 +2245,14 @@ body::before {
   grid-template-columns: 280px 1fr;
   gap: var(--space-2xl);
   align-items: center;
+  padding: var(--space-3xl) 0;
 }
 
 @media (max-width: 768px) {
   .about-hero {
     grid-template-columns: 1fr;
     text-align: center;
+    padding: var(--space-2xl) 0;
   }
 }
 

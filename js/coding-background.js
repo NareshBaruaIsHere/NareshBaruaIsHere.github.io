@@ -208,6 +208,7 @@ class CodingBackground {
         vy: Math.random() * 1 + 0.5,
         size: Math.random() * 12 + 8,
         opacity: Math.random() * 0.7 + 0.3,
+        hoverOpacity: Math.random() * 0.7 + 0.3,
         symbol:
           this.codeSymbols[Math.floor(Math.random() * this.codeSymbols.length)],
         color: this.colors[Math.floor(Math.random() * this.colors.length)],
@@ -253,15 +254,38 @@ class CodingBackground {
       particle.x += particle.vx;
       particle.y += particle.vy;
 
-      // Mouse interaction
+      // Enhanced mouse interaction
       const dx = this.mouseX - particle.x;
       const dy = this.mouseY - particle.y;
       const distance = Math.sqrt(dx * dx + dy * dy);
 
-      if (distance < 100) {
-        const force = (100 - distance) / 100;
-        particle.x -= (dx / distance) * force * 0.5;
-        particle.y -= (dy / distance) * force * 0.5;
+      // Attraction and repulsion zones
+      if (distance < 150) {
+        const force = (150 - distance) / 150;
+
+        // Close hover effect - particles move away
+        if (distance < 80) {
+          particle.x -= (dx / distance) * force * 1.2;
+          particle.y -= (dy / distance) * force * 1.2;
+
+          // Add extra opacity boost
+          particle.hoverOpacity = Math.min(1, particle.opacity + force * 0.3);
+        }
+        // Medium distance - slight attraction
+        else if (distance < 120) {
+          particle.x += (dx / distance) * force * 0.3;
+          particle.y += (dy / distance) * force * 0.3;
+          particle.hoverOpacity = particle.opacity + force * 0.2;
+        }
+        // Far distance - gentle pull
+        else {
+          particle.x += (dx / distance) * force * 0.1;
+          particle.y += (dy / distance) * force * 0.1;
+          particle.hoverOpacity = particle.opacity + force * 0.1;
+        }
+      } else {
+        // Reset to normal opacity when far from mouse
+        particle.hoverOpacity = particle.opacity;
       }
 
       // Update rotation and pulse
@@ -275,10 +299,29 @@ class CodingBackground {
       if (particle.y > window.innerHeight + 50) particle.y = -50;
     });
 
-    // Update code lines
+    // Enhanced code lines interaction
     this.codeLines.forEach((line) => {
+      // Mouse interaction for code lines
+      const dx = this.mouseX - line.x;
+      const dy = this.mouseY - line.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      // Code lines react to mouse proximity
+      if (distance < 200) {
+        const force = (200 - distance) / 200;
+        line.vx += (dx / distance) * force * 0.002;
+        line.vy += (dy / distance) * force * 0.002;
+        line.hoverOpacity = Math.min(0.8, line.opacity + force * 0.3);
+      } else {
+        line.hoverOpacity = line.opacity;
+      }
+
       line.x += line.vx;
       line.y += line.vy;
+
+      // Damping for velocity
+      line.vx *= 0.99;
+      line.vy *= 0.99;
 
       // Wrap around screen
       if (line.x < -300) line.x = window.innerWidth + 300;
@@ -296,9 +339,10 @@ class CodingBackground {
     this.particles.forEach((particle) => {
       this.ctx.save();
 
-      // Calculate pulsing opacity
+      // Use hover opacity if available, otherwise use pulsing opacity
+      const baseOpacity = particle.hoverOpacity || particle.opacity;
       const pulseOpacity =
-        particle.opacity * (0.8 + 0.2 * Math.sin(particle.pulsePhase));
+        baseOpacity * (0.8 + 0.2 * Math.sin(particle.pulsePhase));
 
       this.ctx.translate(particle.x, particle.y);
       this.ctx.rotate(particle.rotation);
@@ -306,9 +350,10 @@ class CodingBackground {
       this.ctx.textAlign = "center";
       this.ctx.textBaseline = "middle";
 
-      // Add glow effect
+      // Enhanced glow effect based on mouse proximity
+      const glowIntensity = particle.hoverOpacity > particle.opacity ? 12 : 8;
       this.ctx.shadowColor = particle.color;
-      this.ctx.shadowBlur = 8;
+      this.ctx.shadowBlur = glowIntensity;
       this.ctx.fillStyle = particle.color.replace(
         /[\d\.]+\)$/g,
         pulseOpacity + ")",
@@ -324,12 +369,10 @@ class CodingBackground {
       this.ctx.save();
 
       this.ctx.font = `${line.size}px 'JetBrains Mono', monospace`;
-      this.ctx.fillStyle = line.color.replace(
-        /[\d\.]+\)$/g,
-        line.opacity + ")",
-      );
+      const lineOpacity = line.hoverOpacity || line.opacity;
+      this.ctx.fillStyle = line.color.replace(/[\d\.]+\)$/g, lineOpacity + ")");
       this.ctx.shadowColor = line.color;
-      this.ctx.shadowBlur = 4;
+      this.ctx.shadowBlur = lineOpacity > line.opacity ? 8 : 4;
 
       this.ctx.fillText(line.text, line.x, line.y);
 
